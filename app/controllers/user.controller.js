@@ -1,5 +1,7 @@
 const db = require('../models/index.model');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth.config');
 
 const User = db.user;
 const Op = db.Sequelize.Op;
@@ -38,15 +40,21 @@ exports.signin = (req, res) => {
 
             if (!passwordIsValid) {
                 return res.status(401).send({
+                    accessToken: null,
                     message: 'Invalid password',
                 });
             }
+
+            const token = jwt.sign({ id: user.id }, authConfig.secret, {
+                expiresIn: 86400, // 24 hours
+            });
 
             res.status(200).send({
                 id: user.id,
                 username: user.username,
                 email: user.email,
                 profilePicUrl: user.profilePicUrl,
+                accessToken: token,
             });
         })
         .catch((err) => {
