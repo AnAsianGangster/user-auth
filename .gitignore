@@ -1,5 +1,11 @@
+# local files
 node_modules
 .DS_Store
-.env
-request.rest
 yarn.lock
+
+# secrets
+.env
+*.pem
+
+# test scripts
+request.rest
