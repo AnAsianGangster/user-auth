@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const db = require('./app/models/index.model');
+const db = require('./src/models/index.model');
 db.sequelize.sync();
 
 const app = express();
@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
     });
 });
 
-require('./app/routes/index.route')(app);
+require('./src/routes/index.route')(app);
 
 const port = process.env.port || 5000;
 app.listen(port, function () {
