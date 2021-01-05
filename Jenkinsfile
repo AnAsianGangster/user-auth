@@ -3,24 +3,20 @@ pipeline {
 
     stages {
         stage('build') {
-            // environment {
-            //     dotenv_content = 'something'
-            // }
-
             steps {
-                echo 'Hi'
+                echo 'Hi in build'
             }
         }
 
         stage('test') {
             steps {
-                pwd
+                echo 'Hi in test'
             }
         }
 
         stage('deploy') {
             steps {
-                pwd
+                echo 'Hi in deploy'
             }
         }
     }
