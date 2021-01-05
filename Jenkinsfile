@@ -1,33 +1,26 @@
 pipeline {
-
     agent any
 
     stages {
-        
-        stage("build") {
-
+        stage('build') {
             environment {
-                dotenv_content = "something"
+                dotenv_content = 'something'
             }
 
             steps {
-                sh echo "Hi $dotenv_content"
-                sh echo "##################"
-                sh echo "pwd"
+                sh echo "Hi ${dotenv_content}"
             }
         }
-        
-        stage("test") {
 
+        stage('test') {
             steps {
-                sh echo "pwd"
+                sh echo 'pwd'
             }
         }
-        
-        stage("deploy") {
 
+        stage('deploy') {
             steps {
-                sh echo "pwd"
+                sh echo 'pwd'
             }
         }
     }
