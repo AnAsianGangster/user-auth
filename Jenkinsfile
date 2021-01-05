@@ -8,7 +8,7 @@ pipeline {
             // }
 
             steps {
-                sh pwd
+                sh echo "Hi"
             }
         }
 
