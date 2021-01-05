@@ -8,19 +8,19 @@ pipeline {
             // }
 
             steps {
-                sh echo "Hi"
+                echo 'Hi'
             }
         }
 
         stage('test') {
             steps {
-                sh pwd
+                pwd
             }
         }
 
         stage('deploy') {
             steps {
-                sh pwd
+                pwd
             }
         }
     }
